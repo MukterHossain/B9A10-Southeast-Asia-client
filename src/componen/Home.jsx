@@ -1,11 +1,19 @@
+import CountriesSection from "./CountriesSection";
+import CountryBanner from "./CountryBanner";
 
 
 const Home = () => {
+   
     return (
         <div>
-            <div className="h2 text-3xl text-center">Home Page</div>
+            <CountryBanner></CountryBanner>
+            <CountriesSection></CountriesSection>
         </div>
     );
 };
 
 export default Home;
+
+
+
+

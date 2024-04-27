@@ -28,7 +28,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex items-center">
                     <span className=" text-3xl font-extrabold text-blue-800">WD</span></div>
-                    <span className="btn btn-ghost text-xl">Travels</span>
+                    <span className=" text-xl font-semibold pl-2">Travels</span>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
