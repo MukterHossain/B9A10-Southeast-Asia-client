@@ -14,14 +14,15 @@ const Register = () => {
     // const navigate = useNavigate();
 
     // const { register, handleSubmit, formState: { errors } } = useForm();
-    // const {signInUser} = useContext(AuthContext)
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
         const email = form.email.value;
+        const photo = form.photo.value;
         const password = form.password.value;
         console.log(email, password)
-        const newUsers = { email, password }
+        const newUsers = {name, email, photo, password }
         console.log(newUsers)
         createUser(email, password)
         .then(result => {
@@ -99,9 +100,21 @@ const Register = () => {
                 <form onSubmit={handleRegister} className="card-body">
                     <div className="form-control">
                         <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered"  />
                     </div>
                     <div className="form-control">
                         <label className="label">
