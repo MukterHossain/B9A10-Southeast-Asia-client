@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import CountriesSection from "./CountriesSection";
 import CountryBanner from "./CountryBanner";
+import CountriesShow from "../pages/CountriesShow";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
         <div>
             <CountryBanner ></CountryBanner>
             <CountriesSection country={country}></CountriesSection>
+            <CountriesShow></CountriesShow>
         </div>
     );
 };

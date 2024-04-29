@@ -17,7 +17,7 @@ const AddTouristsSpot = () => {
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
         const image = form.image.value;
-        const newCoffee = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image };
+        const newCoffee = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image  };
         console.log(newCoffee)
 
         //sent data to the server

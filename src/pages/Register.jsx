@@ -1,19 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
     // const { createUser, updateUserProfile } = useContext(AuthContext);
-    // const [registerError, setRegisterError] = useState('')
-    // const [registerSuccess, setRegisterSuccess] = useState('')
-    // const [showPassword, setShowPassword] = useState(false)
+    const [registerError, setRegisterError] = useState('')
+    const [registerSuccess, setRegisterSuccess] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
 
     // const location = useLocation();
     // const navigate = useNavigate();
 
-    // const { register, handleSubmit, formState: { errors } } = useForm();
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -22,16 +23,40 @@ const Register = () => {
         const photo = form.photo.value;
         const password = form.password.value;
         console.log(email, password)
-        const newUsers = {name, email, photo, password }
+        const newUsers = { name, email, photo, password }
         console.log(newUsers)
+
+        setRegisterError('')
+        setRegisterSuccess('')
+
+
+        if (password.length < 6) {
+            setRegisterError('Password should be at least 6 characters or longer');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setRegisterError('Your password should have at least one uppercase and one lowercase  characters')
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            setRegisterError('Your password should have at least one uppercase and one lowercase  characters')
+            return;
+        }
         createUser(email, password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.log(error)
-        })
-        
+            .then(result => {
+                console.log(result.user)
+                Swal.fire({
+                    title: "Welcome!",
+                    text: "You have register successfully ",
+                    icon: "success"
+                  });
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+
         // signInUser(email, password)
         // .then(result => {
         //     console.log(result.user)
@@ -60,35 +85,18 @@ const Register = () => {
 
 
     // const onSubmit = data => {
-        // const { email, password, image, name } = data;
 
-        // setRegisterError('')
-        // setRegisterSuccess('')
 
-        // if (password.length < 6) {
-        //     setRegisterError('Password should be at least 6 characters or longer');
-        //     return;
-        // }
-        // const isValid = /[A-Z]/.test(password) && /[a-z]/.test(password);
-        // else if (!/[A-Z]/.test(password))  {
-        //     // setRegisterError('Your password should have at least one uppercase and one lowercase  characters')
-        //     return;
-        // }
-        // else if (!/[a-z]/.test(password))  {
-        //     // setRegisterError('Your password should have at least one uppercase and one lowercase  characters')
-        //     return;
-        // }
+    // createUser(email, password)
+    //     .then(() => {
+    //         updateUserProfile(name, image)
+    //         // setRegisterSuccess('you have register successfully ')
+    //         // toast('you have register successfully')
+    //             .then(() => {
+    //                 navigate('/')
+    //             });
 
-        // createUser(email, password)
-        //     .then(() => {
-        //         updateUserProfile(name, image)
-        //         // setRegisterSuccess('you have register successfully ')
-        //         // toast('you have register successfully')
-        //             .then(() => {
-        //                 navigate('/')
-        //             });
-
-        //     });
+    //     });
     // };
 
     return (
@@ -114,48 +122,34 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered"  />
+                        <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered" />
                     </div>
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        <div className="relative">
+                            <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className="input input-bordered w-full" />
+                            <span className="absolute top-4 right-6" onClick={() => setShowPassword(!showPassword)}>
+                                {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                            </span>
+                        </div>
+                        {
+                            registerError && <p className="text-red-600">{registerError}</p>
+                        }
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Register</button>
                     </div>
-
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        {/* <div className="relative">
-                        <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className="input input-bordered w-full"  />
-                        <span className="absolute top-4 right-6" onClick={() => setShowPassword(!showPassword)}>
-                            {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
-                        </span>
-                    </div> */}
-                        {/* {errors.password && <span className="text-red-600">This field is required</span>} */}
-                        {/* {
-                        registerError && <p className="text-red-600">{registerError}</p>
-                    } */}
-                    </div>
-                    {/* {
-                    registerSuccess && <p className="text-green-600">{registerSuccess}</p>
-                } */}
-
+                    {
+                        registerSuccess && <p className="text-green-600">{registerSuccess}</p>
+                    }
                 </form>
-
                 <div>
                     <p className="text-center mt-5">Already have an account? <Link className="text-blue-600 font-bold " to='/login'>Login</Link></p>
                 </div>
-
             </div>
-            {/* <ToastContainer></ToastContainer> */}
         </div>
     );
 
