@@ -18,7 +18,6 @@ const Register = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        console.log(email, password)
         const newUsers = { name, email, photo, password }
         console.log(newUsers)
 

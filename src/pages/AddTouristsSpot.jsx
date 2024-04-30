@@ -18,7 +18,6 @@ const AddTouristsSpot = () => {
         const userName = form.userName.value;
         const image = form.image.value;
         const newAdd = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image };
-        console.log(newAdd)
 
         //sent data to the server
         fetch('https://b9-a10-southeast-asia-server.vercel.app/travel', {

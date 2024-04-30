@@ -6,7 +6,6 @@ import CountriesShow from "../pages/CountriesShow";
 
 const Home = () => {
     const country = useLoaderData()
-    console.log(country)
    
     return (
         <div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CountryBanner = () => {
 
 
-//data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000"
+
     return (
         <div className="my-20">
             <div className="h2 text-3xl text-center text-blue-600 font-bold pb-5">Banner Section</div>
