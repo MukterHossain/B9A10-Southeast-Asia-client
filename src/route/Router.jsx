@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage";
 import AddTouristsSpot from "../pages/AddTouristsSpot";
 import PrivateRoute from "./PrivateRoute";
 import MyList from "../componen/MyList";
+import AllSpots from "../pages/AllSpots";
 
 
 
@@ -27,6 +28,11 @@ export const router = createBrowserRouter([
       {
         path: '/allTourist',
         element:<AllTouristSpot></AllTouristSpot> 
+      },
+    
+      {
+        path: '/allTourist/:id',
+        element: <AllSpots></AllSpots>        
       },
       {
         path: 'addSpot',

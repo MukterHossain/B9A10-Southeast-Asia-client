@@ -17,9 +17,9 @@ const CountriesShow = () => {
     },[])
     console.log( countries)
     return (
-        <div>
-            <h2 className="h2 text-3xl text-center text-blue-600 font-bold pb-5">Countries :</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-20">
+            <h2 className="h2 text-3xl text-center text-blue-600 font-bold pb-5">Countries</h2>
+            <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 ">
             {
                 countries?.map(country => <CountriesShowCard key={country._id} country={country}></CountriesShowCard>)
             }

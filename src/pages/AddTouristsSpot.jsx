@@ -17,35 +17,26 @@ const AddTouristsSpot = () => {
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
         const image = form.image.value;
-        const newCoffee = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image  };
+        const newCoffee = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image };
         console.log(newCoffee)
 
         //sent data to the server
-        fetch('http://localhost:5000/travel',{
+        fetch('http://localhost:5000/travel', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(newCoffee)
         })
-        .then(res=> res.json())
-        .then(data => {
-            console.log(data)
-            // if(data.insertedId){
-            //     Swal.fire({
-            //         title: 'Success !',
-            //         text: 'Coffee added successfully',
-            //         icon: 'success',
-            //         confirmButtonText: 'Cool'
-            //       })
-            // }
-            Swal.fire({
-                        title: 'Success !',
-                        text: 'Coffee added successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                      })
-        })
+            .then(res => res.json())
+            .then(() => {
+                Swal.fire({
+                    title: 'Success !',
+                    text: 'Coffee added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            })
     }
 
 
@@ -53,8 +44,9 @@ const AddTouristsSpot = () => {
     return (
         <div className="mt-12  p-20">
 
-            <h2 className="text-4xl text-center">Add Tourists Spot</h2>
-            <div className="w-3/5 mx-auto">
+
+            <h2 className="h2 text-3xl text-center text-blue-600 font-bold pb-5">Add Tourists Spot</h2>
+            <div className="w-3/5 mx-auto mt-10">
                 <form onSubmit={handleAddTouristSpot}>
                     {/* form name and quantity row */}
                     <div className="md:flex gap-4 mb-6">
@@ -63,18 +55,26 @@ const AddTouristsSpot = () => {
                                 <span className="label-text">Tourists_spot_name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="name" className="input input-bordered w-full"                                
-                                placeholder="Tourists_spot_name" />
+                                <input type="text" name="name" className="input input-bordered w-full"
+                                    placeholder="Tourists_spot_name" />
                             </label>
                         </div>
                         
+
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Country_Name</span>
-                            </label>                         
-                            <label className="input-group">
-                                <input  type="text" name="countryName" className="input input-bordered w-full" placeholder="Country_Name" />
                             </label>
+                            <div className='w-full py-3 px-2 border-2 rounded-lg '>
+                            <select name="countryName" id="">
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Cambodia">Cambodia</option>
+                            </select>
+                        </div>
                         </div>
                     </div>
 
