@@ -44,7 +44,8 @@ export const router = createBrowserRouter([
         path:'/myList',
         element: <PrivateRoute>
           <MyList></MyList>
-          </PrivateRoute>
+          </PrivateRoute>,
+          loader: () => fetch('http://localhost:5000/travel')
       },
       {
         path: '/login',
