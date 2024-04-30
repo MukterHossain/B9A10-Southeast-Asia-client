@@ -9,10 +9,9 @@ const MyList = () => {
 
     return (
         <div className="mt-12">
-            <div>
-                <table className="w-full">
-                    <div className="w-full">
-                    <tr className="w-full">
+
+            <div className="w-full">
+            <tr className="w-full">
                         <th>Spot Name</th>
                         <th>CounTry Name</th>
                         <th>Average_Cost</th>
@@ -22,16 +21,15 @@ const MyList = () => {
                         <th>User Email</th>
                         <th>Update/Delete</th>
                     </tr>
-                    </div>
+            </div>
+           
+                <table className="w-full">
                     
-                       <div className="w-full">
+ 
                        {
                             dataShow?.map(data => <SingleData key={data._id} data={data}></SingleData>)
-                        }
-                       </div>
-                    
-                </table>
-            </div>
+                        }                   
+                </table>           
         </div>
     );
 };
