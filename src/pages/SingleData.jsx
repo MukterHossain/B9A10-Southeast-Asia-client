@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -50,7 +51,10 @@ const SingleData = ({ data }) => {
                 <td>{average}</td>
                 <td>{location}</td>
                 <td>{userEmail}</td>
-                <td><button className="btn btn-sm bg-green-400">Update</button></td>
+                <td>
+                    <Link to={`/update/${_id}`}>
+                    <button className="btn btn-sm bg-green-400">Update</button></Link>
+                    </td>
                 <td><button onClick={() => handleDelete(_id)} className="btn btn-sm bg-red-500">Delete</button></td>
             </tr>
         </div>
