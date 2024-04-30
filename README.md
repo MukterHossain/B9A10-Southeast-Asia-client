@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 # WD Travels
 
-[]
+[https://b9a10-southeast-asia.web.app/]
 
 ## features and characteristics 
  - Viewable every section
@@ -21,14 +21,12 @@ Currently, two official plugins are available:
  - Github authentication 
  - Dynamic Profile section
  - Beautiful button
+ - dark/light theme toggle
+ - Implement CRUD operations
 
- There are nine segment => 
- - Hospitals
- - Schools
+ ## Category Name => 
+ -  Southeast Asia
 
 
 
 
- ## npm package name
- - AOS Package
- - 
