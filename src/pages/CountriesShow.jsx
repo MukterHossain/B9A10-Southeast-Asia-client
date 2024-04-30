@@ -8,7 +8,7 @@ const CountriesShow = () => {
     
 
     useEffect(()=>{
-        fetch('http://localhost:5000/countries')
+        fetch('https://b9-a10-southeast-asia-server.vercel.app/countries')
         .then(res => res.json())
         .then(data => setCountries(data)
        

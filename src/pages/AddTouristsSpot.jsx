@@ -21,7 +21,7 @@ const AddTouristsSpot = () => {
         console.log(newAdd)
 
         //sent data to the server
-        fetch('http://localhost:5000/travel', {
+        fetch('https://b9-a10-southeast-asia-server.vercel.app/travel', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

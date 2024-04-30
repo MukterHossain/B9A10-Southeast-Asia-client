@@ -6,8 +6,6 @@ import { AuthContext } from "../provider/AuthProvider";
 const Login = () => {
     const {signInUser, logInWithGoogle, logInWithGithub} = useContext(AuthContext)
 
-    // const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
-    // const location = useLocation();
     const navigate = useNavigate();
     console.log('login', location)
     const handleUserLogin = e => {
@@ -16,8 +14,6 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
-        // const newUsers = { email, password }
-        // console.log(newUsers)
          signInUser(email, password)
         .then(result => {
             console.log(result.user)
@@ -39,32 +35,8 @@ const Login = () => {
         })
     }
 
-    // const { register, handleSubmit, formState: { errors } } = useForm();
+   
 
-    // const onSubmit = data => {
-    //     const { email, password } = data;
-    //     signIn(email, password)
-    //         .then(result => {
-    //             if (result.user) {
-    //                 // toast('You have login successfully')
-    //                 navigate(location?.state || '/')
-    //             }
-    //         })
-    //         .catch(() => {
-    //             // toast('Please valid email and password')
-    //         })
-    // }
-
-    // const handleSocietyLogin = societyContainer => {
-    //     societyContainer()
-    //         .then(result => {
-    //             if (result.user) {
-    //                 // toast('You have social login successfully')
-    //                 navigate(location?.state || '/')
-    //             }
-
-    //         })
-    // }
 
     return (
         <div className=" flex-col my-12 ">

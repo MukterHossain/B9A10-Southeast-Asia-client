@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/travel')
+        loader: () => fetch('https://b9-a10-southeast-asia-server.vercel.app/travel')
       },
       {
         path: '/allTourist',
@@ -46,12 +46,12 @@ export const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyList></MyList>
           </PrivateRoute>,
-          loader: () => fetch('http://localhost:5000/travel')
+          loader: () => fetch('https://b9-a10-southeast-asia-server.vercel.app/travel')
       },
       {
         path: 'update/:id',
         element: <UpdateSpot></UpdateSpot>,
-        loader: ({params}) => fetch(`http://localhost:5000/travel/${params.id}`)
+        loader: ({params}) => fetch(`https://b9-a10-southeast-asia-server.vercel.app/travel/${params.id}`)
       },
       {
         path: '/login',

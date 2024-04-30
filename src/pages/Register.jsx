@@ -7,13 +7,9 @@ import Swal from "sweetalert2";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
-    // const { createUser, updateUserProfile } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('')
     const [registerSuccess, setRegisterSuccess] = useState('')
     const [showPassword, setShowPassword] = useState(false)
-
-    // const location = useLocation();
-    // const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -55,49 +51,9 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             })
-
-
-        // signInUser(email, password)
-        // .then(result => {
-        //     console.log(result.user)
-        //     const user = {
-        //         email,
-        //         lastLoggedAt: result.user?.metadata?.lastSignInTime
-        //     }
-        //     // update last logged at in the database
-        //     fetch('https://m56-coffee-store-server.vercel.app/user', {
-        //         method: 'PATCH',
-        //         headers: {
-        //             'content-type' : 'application/json'
-        //         },
-        //         body: JSON.stringify(user)
-        //     })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //     })
-        // })
-        // .catch(error => {
-        //     console.log(error)
-        // })
+        
     }
 
-
-
-    // const onSubmit = data => {
-
-
-    // createUser(email, password)
-    //     .then(() => {
-    //         updateUserProfile(name, image)
-    //         // setRegisterSuccess('you have register successfully ')
-    //         // toast('you have register successfully')
-    //             .then(() => {
-    //                 navigate('/')
-    //             });
-
-    //     });
-    // };
 
     return (
         <div className=" flex-col my-12 ">

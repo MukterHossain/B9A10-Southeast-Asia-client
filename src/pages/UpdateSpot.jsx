@@ -18,14 +18,12 @@ const UpdateSpot = () => {
         const seasonality = form.seasonality.value;
         const travelTime = form.travelTime.value;
         const totalVisitors = form.totalVisitors.value;
-        // const userEmail = form.userEmail.value;
-        // const userName = form.userName.value;
         const image = form.image.value;
         const newTravel = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, image };
         console.log(newTravel)
 
         //sent data to the server
-        fetch(`http://localhost:5000/travel/${_id}`, {
+        fetch(`https://b9-a10-southeast-asia-server.vercel.app/travel/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
