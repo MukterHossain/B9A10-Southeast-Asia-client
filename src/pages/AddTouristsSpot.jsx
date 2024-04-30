@@ -17,8 +17,8 @@ const AddTouristsSpot = () => {
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
         const image = form.image.value;
-        const newCoffee = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image };
-        console.log(newCoffee)
+        const newAdd = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image };
+        console.log(newAdd)
 
         //sent data to the server
         fetch('http://localhost:5000/travel', {
@@ -26,13 +26,13 @@ const AddTouristsSpot = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newCoffee)
+            body: JSON.stringify(newAdd)
         })
             .then(res => res.json())
             .then(() => {
                 Swal.fire({
                     title: 'Success !',
-                    text: 'Coffee added successfully',
+                    text: 'Data added successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                 })
