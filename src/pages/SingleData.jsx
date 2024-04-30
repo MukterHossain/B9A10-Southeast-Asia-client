@@ -2,13 +2,11 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const SingleData = ({ data }) => {
+const SingleData = ({ data, setDataShow, dataShow }) => {
     const { _id, name, countryName, location, average, travelTime, userEmail, image } = data;
 
     const handleDelete = _id => {
         console.log(_id)
-
-
 
         Swal.fire({
             title: "Are you sure?",
@@ -33,6 +31,8 @@ const SingleData = ({ data }) => {
                                 text: "Your card has been deleted.",
                                 icon: "success"
                             });
+                            const remainData = dataShow.filter(aData => aData._id !== _id);
+                            setDataShow(remainData)
                         }
                     })
             }

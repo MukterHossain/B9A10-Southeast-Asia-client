@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import SingleData from "../pages/SingleData";
+import { useState } from "react";
 
 
 const MyList = () => {
 
-    const dataShow = useLoaderData()
+    const dataShowLoaded = useLoaderData()
+    const [dataShow, setDataShow] = useState(dataShowLoaded)
     
 
     return (
@@ -25,9 +27,8 @@ const MyList = () => {
            
                 <table className="w-full">
                     
- 
                        {
-                            dataShow?.map(data => <SingleData key={data._id} data={data}></SingleData>)
+                            dataShow?.map(data => <SingleData key={data._id}  data={data} setDataShow={setDataShow} dataShow={dataShow} ></SingleData>)
                         }                   
                 </table>           
         </div>
