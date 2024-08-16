@@ -8,8 +8,12 @@ import ErrorPage from "../pages/ErrorPage";
 import AddTouristsSpot from "../pages/AddTouristsSpot";
 import PrivateRoute from "./PrivateRoute";
 import MyList from "../componen/MyList";
-import AllSpots from "../pages/AllSpots";
 import UpdateSpot from "../pages/UpdateSpot";
+import SportViewDetails from "../pages/SportViewDetails";
+import AllSportDetails from "../pages/AllSportDetails"
+import CountriesShowDetails from "../pages/CountriesShowDetails";
+import AllCountries from "../componen/AllCountries";
+import GalleryAll from "../pages/GalleryAll";
 
 
 
@@ -24,16 +28,18 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('https://b9-a10-southeast-asia-server.vercel.app/travel')
+        loader: () => fetch('http://localhost:5000/country')
       },
       {
         path: '/allTourist',
-        element:<AllTouristSpot></AllTouristSpot> 
+        element: <AllTouristSpot></AllTouristSpot>,
+        loader: () => fetch('http://localhost:5000/country')
       },
-    
+
       {
-        path: '/allTourist/:id',
-        element: <AllSpots></AllSpots>        
+        path: '/allDetails/:id',
+        element: <AllSportDetails></AllSportDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/country/${params.id}`)
       },
       {
         path: 'addSpot',
@@ -42,21 +48,47 @@ export const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path:'/myList',
+        path: '/myList',
         element: <PrivateRoute>
           <MyList></MyList>
-          </PrivateRoute>,
-          loader: () => fetch('https://b9-a10-southeast-asia-server.vercel.app/travel')
+        </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/country')
       },
       {
         path: 'update/:id',
-        element: <UpdateSpot></UpdateSpot>,
-        loader: ({params}) => fetch(`https://b9-a10-southeast-asia-server.vercel.app/travel/${params.id}`)
+        element: <PrivateRoute>
+          <UpdateSpot></UpdateSpot>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/country/${params.id}`)
+      },
+      {
+        path: '/details/:id',
+        element: <PrivateRoute>
+          <SportViewDetails></SportViewDetails>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/country/${params.id}`)
+      },
+      {
+        path: '/CountriesDetails/:countryName',
+        element: <CountriesShowDetails></CountriesShowDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/selectedDetails/${params.countryName}`)
+      },
+
+      {
+        path: '/country/:countryName',
+        element: <AllCountries></AllCountries>,
+        loader: ({ params }) => fetch(`http://localhost:5000/selectedCountry/${params.countryName}`)
+      },
+      {
+        path: '/pictures',
+        element: <GalleryAll></GalleryAll>,
+        loader: () => fetch(`http://localhost:5000/pictures`)
       },
       {
         path: '/login',
         element: <Login></Login>
       },
+
       {
         path: '/register',
         element: <Register></Register>

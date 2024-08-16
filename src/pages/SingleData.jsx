@@ -1,9 +1,10 @@
+import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const SingleData = ({ data, setDataShow, dataShow }) => {
-    const { _id, name, countryName, location, average, travelTime, userEmail, image } = data;
+    const { _id, name, location, average, travelTime } = data;
 
     const handleDelete = _id => {
         console.log(_id)
@@ -19,7 +20,7 @@ const SingleData = ({ data, setDataShow, dataShow }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://b9-a10-southeast-asia-server.vercel.app/travel/${_id}`,{
+                fetch(`http://localhost:5000/country/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -41,23 +42,30 @@ const SingleData = ({ data, setDataShow, dataShow }) => {
 
 
     return (
-        <div>
-
-            <tr>
-                <td>{name}</td>
-                <td>{countryName}</td>
-                <td>{image}</td>
-                <td>{travelTime}</td>
-                <td>{average}</td>
-                <td>{location}</td>
-                <td>{userEmail}</td>
-                <td>
-                    <Link to={`/update/${_id}`}>
-                    <button className="btn btn-sm bg-green-400">Update</button></Link>
-                    </td>
-                <td><button onClick={() => handleDelete(_id)} className="btn btn-sm bg-red-500">Delete</button></td>
+        <>
+            <tr className="border-b text-sm border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                <td className="p-3">
+                    <p>{name}</p>
+                </td>
+                <td className="p-3">
+                    <p>${average}</p>
+                </td>
+                <td className="p-3">
+                    <p>{travelTime}</p>
+                </td>
+                <td className="p-3">
+                    <p>{location}</p>
+                </td>
+                <td className="p-3 text-right">
+                    <Fade direction="left" cascade={false} delay={1000} triggerOnce={true}> <Link to={`/update/${_id}`}>
+                        <button className="btn btn-sm bg-green-400">Update</button></Link> </Fade>
+                </td>
+                <td className="p-3 text-right">
+                    <Fade direction="right" cascade={false} delay={1000} triggerOnce={true}> <button onClick={() => handleDelete(_id)} className="btn btn-sm bg-red-500">Delete</button>
+                    </Fade>
+                </td>
             </tr>
-        </div>
+        </>
     );
 };
 

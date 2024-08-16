@@ -21,6 +21,7 @@ Currently, two official plugins are available:
  - Github authentication 
  - Dynamic Profile section
  - Beautiful button
+ - Extra two sections
  - dark/light theme toggle
  - Implement CRUD operations
 

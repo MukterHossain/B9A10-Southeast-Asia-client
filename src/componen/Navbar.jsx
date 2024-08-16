@@ -24,8 +24,8 @@ const Navbar = () => {
         document.querySelector('html').setAttribute('data-theme', localTheme)
     }, [theme])
     const handleToggle = (e) => {
-        if (e.target.checked) {
-            setTheme('synthwave')
+        if(e.target.checked) {
+            setTheme('dark')
         }
         else {
             setTheme('light')
@@ -35,7 +35,7 @@ const Navbar = () => {
 
     const navLinks = <>
 
-        <NavLink to='/' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Home</NavLink>
+        <NavLink to='/' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3  rounded-sm border-2 border-gray-200 '}>Home</NavLink>
         <NavLink to='/allTourist' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>All Tourists Spot</NavLink>
         {
             user && <>
@@ -61,7 +61,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex items-center">
                         <span className=" text-3xl font-extrabold text-blue-800">WD</span>
-                        <span className=" text-xl font-semibold pl-2">Travels</span>
+                        <span className=" text-xl font-semibold pl-2 ">Travels</span>
                     </div>
 
                 </div>

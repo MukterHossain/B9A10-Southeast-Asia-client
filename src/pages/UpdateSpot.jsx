@@ -1,4 +1,6 @@
+import { Fade } from "react-awesome-reveal";
 import { useLoaderData } from "react-router-dom";
+import { Cursor, Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
 
 
@@ -20,10 +22,10 @@ const UpdateSpot = () => {
         const totalVisitors = form.totalVisitors.value;
         const image = form.image.value;
         const newTravel = { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, image };
-        console.log(newTravel)
+
 
         //sent data to the server
-        fetch(`https://b9-a10-southeast-asia-server.vercel.app/travel/${_id}`, {
+        fetch(`http://localhost:5000/country/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -37,7 +39,7 @@ const UpdateSpot = () => {
                         title: 'Success !',
                         text: 'Data update successfully',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Done'
                     })
                 }
             })
@@ -47,10 +49,25 @@ const UpdateSpot = () => {
 
     return (
         <div className="mt-12  p-20">
+            <div className='bg-white mb-4 rounded-xl text-black py-2 text-center mx-auto md:w-3/5 lg:w-1/2'>
+                <h2 className="md:text-5xl text-3xl text-center text-blue-600 font-bold pb-3 "><span><Typewriter
+                    words={['Update  Tourists Spot']}
+                    loop={false}
+                    typeSpeed={100}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                /></span>
+                    <Cursor></Cursor>
+                </h2>
+                <div className=' mb-4  px-4  '>
+                    <p className="text-[16px]  py-2">If I were to choose between money and traveling, I would choose the latter. Because traveling gives us life lessons. It teaches us about the beauty of nature. Updated now</p>
+                </div>
+            </div>
 
+            <hr className='px-4 text-center mx-auto md:w-3/5 lg:w-1/2' />
 
-            <h2 className="h2 text-3xl text-center text-blue-600 font-bold pb-5">Update  Tourists Spot</h2>
-            <div className="w-3/5 mx-auto mt-10">
+            <Fade direction="up" cascade={false} delay={400} triggerOnce={true} > 
+            <div className="md:w-4/5 lg:3/5 text-black w-full mx-auto bg-blue-200 mt-10 rounded-2xl shadow-2xl p-4">
                 <form onSubmit={handleUpdateTouristSpot}>
                     {/* form name and quantity row */}
                     <div className="md:flex gap-4 mb-6">
@@ -59,7 +76,7 @@ const UpdateSpot = () => {
                                 <span className="label-text">Tourists_spot_name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="name" defaultValue={name} className="input input-bordered w-full"
+                                <input type="text" name="name" defaultValue={name} className="input bg-white input-bordered w-full"
                                     placeholder="Tourists_spot_name" />
                             </label>
                         </div>
@@ -69,8 +86,8 @@ const UpdateSpot = () => {
                             <label className="label">
                                 <span className="label-text">Country_Name</span>
                             </label>
-                            <div className='w-full py-3 px-2 border-2 rounded-lg '>
-                                <select name="countryName" defaultValue={countryName} id="">
+                            <div className='w-full py-3 px-2 border-2 rounded-lg bg-white '>
+                                <select name="countryName" defaultValue={countryName} id="" className="bg-white">
                                     <option value="Bangladesh">Bangladesh</option>
                                     <option value="Thailand">Thailand</option>
                                     <option value="Indonesia">Indonesia</option>
@@ -89,7 +106,7 @@ const UpdateSpot = () => {
                                 <span className="label-text"> Location</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="location" defaultValue={location} className="input input-bordered w-full" placeholder="Location" />
+                                <input type="text" name="location" defaultValue={location} className="input bg-white input-bordered w-full" placeholder="Location" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2">
@@ -97,7 +114,7 @@ const UpdateSpot = () => {
                                 <span className="label-text">Short description</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="description" defaultValue={description} className="input input-bordered w-full" placeholder="Short description" />
+                                <input type="text" name="description" defaultValue={description} className="input bg-white input-bordered w-full" placeholder="Short description" />
                             </label>
                         </div>
                     </div>
@@ -108,7 +125,7 @@ const UpdateSpot = () => {
                                 <span className="label-text"> Average_cost</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="average" className="input input-bordered w-full" defaultValue={average} placeholder="Average_cost" />
+                                <input type="text" name="average" className="input input-bordered bg-white w-full" defaultValue={average} placeholder="Average_cost" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2">
@@ -116,7 +133,7 @@ const UpdateSpot = () => {
                                 <span className="label-text">Seasonality</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="seasonality" defaultValue={seasonality} className="input input-bordered w-full" placeholder="Seasonality" />
+                                <input type="text" name="seasonality" defaultValue={seasonality} className="input bg-white input-bordered w-full" placeholder="Seasonality" />
                             </label>
                         </div>
                     </div>
@@ -127,7 +144,7 @@ const UpdateSpot = () => {
                                 <span className="label-text">Travel_time</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="travelTime" defaultValue={travelTime} className="input input-bordered w-full" placeholder="travel_time" />
+                                <input type="text" name="travelTime" defaultValue={travelTime} className="input bg-white input-bordered w-full" placeholder="travel_time" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2">
@@ -135,7 +152,7 @@ const UpdateSpot = () => {
                                 <span className="label-text">Total Visitors PerYear</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="totalVisitors" defaultValue={totalVisitors} className="input input-bordered w-full" placeholder="TotalVisitorsPerYear" />
+                                <input type="text" name="totalVisitors" defaultValue={totalVisitors} className="input bg-white input-bordered w-full" placeholder="TotalVisitorsPerYear" />
                             </label>
                         </div>
                     </div>
@@ -146,13 +163,14 @@ const UpdateSpot = () => {
                                 <span className="label-text"> image URL</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="image" defaultValue={image} className="input input-bordered w-full" placeholder="Photo URL" />
+                                <input type="text" name="image" defaultValue={image} className="input bg-white input-bordered w-full" placeholder="Photo URL" />
                             </label>
                         </div>
                     </div>
-                    <input type="submit" value="Update " className="btn btn-block bg-green-400" />
+                    <input type="submit" value="Update " className="btn btn-block bg-blue-400 text-xl text-white outline-none font-bold hover:bg-pink-400" />
                 </form>
             </div>
+            </Fade>
         </div>
     );
 };
