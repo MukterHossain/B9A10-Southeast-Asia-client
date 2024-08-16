@@ -28,18 +28,18 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/country')
+        loader: () => fetch('https://b9-a10-southeast-asia-server.vercel.app/country')
       },
       {
         path: '/allTourist',
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: () => fetch('http://localhost:5000/country')
+        loader: () => fetch('https://b9-a10-southeast-asia-server.vercel.app/country')
       },
 
       {
         path: '/allDetails/:id',
         element: <AllSportDetails></AllSportDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/country/${params.id}`)
+        loader: ({ params }) => fetch(`https://b9-a10-southeast-asia-server.vercel.app/country/${params.id}`)
       },
       {
         path: 'addSpot',
@@ -52,37 +52,37 @@ export const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyList></MyList>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/country')
+        loader: () => fetch('https://b9-a10-southeast-asia-server.vercel.app/country')
       },
       {
         path: 'update/:id',
         element: <PrivateRoute>
           <UpdateSpot></UpdateSpot>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/country/${params.id}`)
+        loader: ({ params }) => fetch(`https://b9-a10-southeast-asia-server.vercel.app/country/${params.id}`)
       },
       {
         path: '/details/:id',
         element: <PrivateRoute>
           <SportViewDetails></SportViewDetails>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/country/${params.id}`)
+        loader: ({ params }) => fetch(`https://b9-a10-southeast-asia-server.vercel.app/country/${params.id}`)
       },
       {
         path: '/CountriesDetails/:countryName',
         element: <CountriesShowDetails></CountriesShowDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/selectedDetails/${params.countryName}`)
+        loader: ({ params }) => fetch(`https://b9-a10-southeast-asia-server.vercel.app/selectedDetails/${params.countryName}`)
       },
 
       {
         path: '/country/:countryName',
         element: <AllCountries></AllCountries>,
-        loader: ({ params }) => fetch(`http://localhost:5000/selectedCountry/${params.countryName}`)
+        loader: ({ params }) => fetch(`https://b9-a10-southeast-asia-server.vercel.app/selectedCountry/${params.countryName}`)
       },
       {
         path: '/pictures',
         element: <GalleryAll></GalleryAll>,
-        loader: () => fetch(`http://localhost:5000/pictures`)
+        loader: () => fetch(`https://b9-a10-southeast-asia-server.vercel.app/pictures`)
       },
       {
         path: '/login',

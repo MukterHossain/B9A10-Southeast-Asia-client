@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 # WD Travels
 
-[https://b9a10-southeast-asia.web.app/]
+[https://b9a10-southeast-asia.web.app]
 
 ## features and characteristics 
  - Viewable every section

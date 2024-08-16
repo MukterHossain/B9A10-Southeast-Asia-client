@@ -20,7 +20,7 @@ const SingleData = ({ data, setDataShow, dataShow }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/country/${_id}`, {
+                fetch(`https://b9-a10-southeast-asia-server.vercel.app/country/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

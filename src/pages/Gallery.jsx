@@ -7,7 +7,7 @@ const Gallery = () => {
     const [pictures, setPictures] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:5000/pictures')
+        fetch('https://b9-a10-southeast-asia-server.vercel.app/pictures')
             .then(res => res.json())
             .then(data => setPictures(data))
     }, [])

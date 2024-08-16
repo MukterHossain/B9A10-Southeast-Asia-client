@@ -25,7 +25,7 @@ const UpdateSpot = () => {
 
 
         //sent data to the server
-        fetch(`http://localhost:5000/country/${_id}`, {
+        fetch(`https://b9-a10-southeast-asia-server.vercel.app/country/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
