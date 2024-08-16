@@ -4,7 +4,6 @@ import AllCountriesCard from "../pages/AllCountriesCard";
 
 const AllCountries = () => {
    const myData = useLoaderData('')
-    console.log(myData)
 
 
     return (

@@ -3,8 +3,8 @@ import { Fade } from "react-awesome-reveal";
 
 
 const CountriesSectionCard = ({ tour, index }) => {
-    const { _id, name, countryName, description, image } = tour;
-    // console.log(tour)
+    const { _id,  countryName, description, image } = tour;
+
 
     return (
         <div>

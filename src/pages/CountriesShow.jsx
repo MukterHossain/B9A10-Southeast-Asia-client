@@ -15,7 +15,7 @@ const CountriesShow = () => {
             )
 
     }, [])
-    // console.log( countries)
+    
     return (
         <div className="mt-20">
             <div className="text-black my-6 mx-auto md:w-3/5 lg:w-1/2">

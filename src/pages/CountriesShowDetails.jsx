@@ -8,7 +8,7 @@ const CountriesShowDetails = () => {
     const countriesData = useLoaderData()
     const {name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image } = countriesData;
 
-    // console.log(countriesData)
+    
 
 
     return (

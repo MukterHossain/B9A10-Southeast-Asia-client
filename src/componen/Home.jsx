@@ -8,7 +8,7 @@ import ContactPage from "../pages/ContactPage";
 
 const Home = () => {
     const travels = useLoaderData()
-    // console.log(travels)
+
    
     return (
         <div>

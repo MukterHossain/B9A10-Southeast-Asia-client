@@ -6,7 +6,6 @@ import { Fade } from "react-awesome-reveal";
 const SportViewDetails = () => {
     const details = useLoaderData()
     const { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image } = details;
-    // console.log(details)
 
     return (
         <div>

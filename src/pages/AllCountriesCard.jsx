@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 
 const AllCountriesCard = ({ dataItem, index }) => {
-    const { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, image } = dataItem;
+    const { name, countryName, average, seasonality, travelTime, totalVisitors, image } = dataItem;
     return (
         <div>
             <Fade direction="left" cascade={false} delay={index * 200} triggerOnce={true} >

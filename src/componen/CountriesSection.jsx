@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const CountriesSection = ({ travels }) => {
     const myTravels = travels.slice(0, 9)
-    console.log(myTravels)
 
     return (
         <div>

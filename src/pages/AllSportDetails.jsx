@@ -6,7 +6,7 @@ import { useLoaderData } from "react-router-dom";
 const AllSportDetails = () => {
     const details = useLoaderData()
     const { name, countryName, location, description, average, seasonality, travelTime, totalVisitors, userEmail, userName, image } = details;
-    console.log(details)
+
     return (
         <div>
             <div className="hero text-black  min-h-screen">
